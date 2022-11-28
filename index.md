@@ -146,6 +146,7 @@ if [[ -f $FILE_NAME ]]
 then
   echo "[PASSED] File Found [$FILE_NAME]"
   ((score++))
+  echo "Final Grade: [$score/5]"
 else
   echo "[FAILED] File Not Found [$FILE_NAME]"
   echo "Final Grade: [$score/5]"
