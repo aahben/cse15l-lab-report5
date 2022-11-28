@@ -5,19 +5,22 @@
 # Create your grading script here
 FILE_NAME="ListExamples.java"
 CLASS_NAME="class ListExamples"
+SCORE=0
 
 echo "Code Grader"
 echo "Target URL: $1"
 echo ""
 
 rm -rf student-submission
-git clone $1 student-submission -q
+git clone $1 student-submission
 
 if [[ $? -eq 0 ]]
 then
   echo "[PASSED] Cloned successfully."
+  ((score++))
 else
-  echo "[FAILED] Clone failed. Check the submit URL."
+  echo "[FAILED] Cloning failed. Check the submit URL."
+  echo "Final Grade: [$score/5]"
   exit 1
 fi
 
@@ -25,9 +28,11 @@ cd student-submission
 
 if [[ -f $FILE_NAME ]]
 then
-  echo "[PASSED] File Found ($FILE_NAME)"
+  echo "[PASSED] File Found [$FILE_NAME]"
+  ((score++))
 else
-  echo "[FAILED] File Not Found ($FILE_NAME)"
+  echo "[FAILED] File Not Found [$FILE_NAME]"
+  echo "Final Grade: [$score/5]"
   exit 1
 fi
 
@@ -35,9 +40,11 @@ grep -q "$CLASS_NAME" ./$FILE_NAME
 
 if [[ $? -eq 0 ]]
 then
-  echo "[PASSED] Text Found ($CLASS_NAME)"
+  echo "[PASSED] Text Found [$CLASS_NAME]"
+  ((score++))
 else
-  echo "[FAILED] Text Not Found ($CLASS_NAME)"
+  echo "[FAILED] Text Not Found [$CLASS_NAME]"
+  echo "Final Grade: [$score/5]"
   exit 1
 fi
 
@@ -48,10 +55,12 @@ javac -cp $CPATH *.java 2> compile_error.txt
 
 if [[ $? -eq 0 ]]
 then
-  echo "[PASSED] Compiled successfully."
+  echo "[PASSED] Compiled Successfully."
+  ((score++))
 else
   MSG=`cat compile_error.txt | head -1`
-  echo "[FAILED] Compile Failed. ($MSG)"
+  echo "[FAILED] Compilation Failed. ($MSG)"
+  echo "Final Grade: [$score/5]"
   exit 1
 fi
 
@@ -65,9 +74,11 @@ if [[ $JUNIT_EXIT_CODE -eq 0 ]]
 then
   RESULT=`cat test_result.txt | grep "OK"`
   echo "[PASSED] jUnit result: " $RESULT
+  ((score++))
 else
   RESULT=`cat test_result.txt | grep "Tests run:"`
   echo "[FAILED] jUnit result: " $RESULT
+  echo "Final Grade: [$score/5]"
   exit 1
 fi
 ```
