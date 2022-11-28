@@ -103,9 +103,12 @@ https://github.com/ucsd-cse15l-f22/list-methods-filename
 <img width="749" alt="Screen Shot 2022-11-28 at 8 41 06 AM" src="https://user-images.githubusercontent.com/114449002/204332798-7b18f73c-2125-4cc0-a331-eb03d3b8e0de.png">
 Grade 1/5
 
-When Submission 3, `https://github.com/ucsd-cse15l-f22/list-methods-corrected` was called the following echo command lines are each ran once, displaying the link of the repository that is currently being tested. 
+When Submission 3, `https://github.com/ucsd-cse15l-f22/list-methods-corrected` was called the following echo command lines are each ran once. First initializing the string variables and initializing score as zero. Then, displaying the link of the repository that is currently being tested. 
 
 ```
+FILE_NAME="ListExamples.java"
+CLASS_NAME="class ListExamples"
+SCORE=0
 echo "Code Grader"
 echo "Target URL: $1"
 echo ""       
@@ -117,13 +120,15 @@ rm -rf student-submission
 git clone $1 student-submission -q
 ```
 
-Since the returning were 0, the if statement `[[ $? -eq 0 ]]` is true and the "[PASSED] Cloned successfully." is echoed. The else statement would not run. 
+Since the returning were 0, the if statement `[[ $? -eq 0 ]]` is true and the "[PASSED] Cloned successfully." is echoed and the score is incremented by one. Since the if statement is false, the else statement would not run. 
 ```
 if [[ $? -eq 0 ]]
 then
   echo "[PASSED] Cloned successfully."
+  ((score++))
 else
-  echo "[FAILED] Clone failed. Check the submit URL."
+  echo "[FAILED] Cloning failed. Check the submit URL."
+  echo "Final Grade: [$score/5]"
   exit 1
 fi
 ```
@@ -133,15 +138,17 @@ Change directory to student-submission to search for the file.
 cd student-submission
 ```
 
-The if statement `if [[ -f $EXAMPLE_FILE_NAME ]]` is ran to check for existence of ListExamples.java file in the current directory. When the file is found, it should echo "[PASSED] File Found ($EXAMPLE_FILE_NAME)". 
-However, since the implementation for submission 3 was saved under the a wrong file name, the command is unable to find a file named ListExamples.java in the current directory and echos "[FAILED] File Not Found ($EXAMPLE_FILE_NAME)" and `exit 1` is ran, exiting the command lines early. 
+The if statement `if [[ -f $EXAMPLE_FILE_NAME ]]` is ran to check for existence of ListExamples.java file in the current directory. When the file is found, it should echo "[PASSED] File Found ($EXAMPLE_FILE_NAME)" and increment the score by one. 
+However, since the implementation for submission 3 was saved under the a wrong file name, the command is unable to find a file named ListExamples.java in the current directory and echos "[FAILED] File Not Found ($EXAMPLE_FILE_NAME)" and echos "Final Grade: [$score/5]", when the score is 1. Then, finally, `exit 1` is ran, exiting the command lines early. 
 
 ```
-if [[ -f $EXAMPLE_FILE_NAME ]] 
+if [[ -f $FILE_NAME ]]
 then
-  echo "[PASSED] File Found ($EXAMPLE_FILE_NAME)" 
+  echo "[PASSED] File Found [$FILE_NAME]"
+  ((score++))
 else
-  echo "[FAILED] File Not Found ($EXAMPLE_FILE_NAME)"
+  echo "[FAILED] File Not Found [$FILE_NAME]"
+  echo "Final Grade: [$score/5]"
   exit 1
 fi
 ```
