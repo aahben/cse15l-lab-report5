@@ -86,22 +86,20 @@ fi
 Submission 1
 https://github.com/ucsd-cse15l-f22/list-methods-lab3
 (Same code as starter from lab 3)
-<img width="706" alt="Screen Shot 2022-11-28 at 8 40 58 AM" src="https://user-images.githubusercontent.com/114449002/204332770-156f72c7-ddb4-486f-82c4-02721388c28c.png">
-Grade 4/5
+<img width="682" alt="Screen Shot 2022-11-28 at 11 34 23 AM" src="https://user-images.githubusercontent.com/114449002/204365074-200e596d-61b8-4d0d-a8cc-cb40b3565d9f.png">
 
 
 Submission 2
 https://github.com/ucsd-cse15l-f22/list-methods-corrected
 (Has methods corrected (Full or near-to-full credit)
-<img width="754" alt="Screen Shot 2022-11-28 at 8 41 01 AM" src="https://user-images.githubusercontent.com/114449002/204332787-c6a86004-482e-41ff-9b8e-bce880bceffc.png">
-Grade 5/5
+<img width="683" alt="Screen Shot 2022-11-28 at 11 32 42 AM" src="https://user-images.githubusercontent.com/114449002/204364788-b912b39b-b932-474c-b99d-8abd505a03c9.png">
 
 
 Submission 3
 https://github.com/ucsd-cse15l-f22/list-methods-filename
 (Has great implementation saved in file with the wrong name)
-<img width="749" alt="Screen Shot 2022-11-28 at 8 41 06 AM" src="https://user-images.githubusercontent.com/114449002/204332798-7b18f73c-2125-4cc0-a331-eb03d3b8e0de.png">
-Grade 1/5
+<img width="681" alt="Screen Shot 2022-11-28 at 11 33 37 AM" src="https://user-images.githubusercontent.com/114449002/204364931-f3c8099e-67de-4100-a9fe-d0e66b383396.png">
+
 
 When Submission 3, `https://github.com/ucsd-cse15l-f22/list-methods-corrected` was called the following echo command lines are each ran once. First initializing the string variables and initializing score as zero. Then, displaying the link of the repository that is currently being tested. 
 
