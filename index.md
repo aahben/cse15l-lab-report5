@@ -1,8 +1,9 @@
 **CSE 15L Lab Report 5**
 
+
 ```
 # Create your grading script here
-EXAMPLE_FILE_NAME="ListExamples.java"
+FILE_NAME="ListExamples.java"
 CLASS_NAME="class ListExamples"
 
 echo "Code Grader"
@@ -22,15 +23,15 @@ fi
 
 cd student-submission
 
-if [[ -f $EXAMPLE_FILE_NAME ]]
+if [[ -f $FILE_NAME ]]
 then
-  echo "[PASSED] File Found ($EXAMPLE_FILE_NAME)"
+  echo "[PASSED] File Found ($FILE_NAME)"
 else
-  echo "[FAILED] File Not Found ($EXAMPLE_FILE_NAME)"
+  echo "[FAILED] File Not Found ($FILE_NAME)"
   exit 1
 fi
 
-grep -q "$CLASS_NAME" ./$EXAMPLE_FILE_NAME
+grep -q "$CLASS_NAME" ./$FILE_NAME
 
 if [[ $? -eq 0 ]]
 then
@@ -40,10 +41,10 @@ else
   exit 1
 fi
 
-CP=".:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar"
+CPATH=".:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar"
 
 cp ../TestListExamples.java .
-javac -cp $CP *.java 2> compile_error.txt
+javac -cp $CPATH *.java 2> compile_error.txt
 
 if [[ $? -eq 0 ]]
 then
@@ -55,7 +56,7 @@ else
 fi
 
 rm -rf test_result.txt
-java -cp $CP org.junit.runner.JUnitCore TestListExamples > test_result.txt
+java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > test_result.txt
 
 JUNIT_EXIT_CODE=$?
 
