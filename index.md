@@ -1,4 +1,4 @@
-CSE 15L Lab Report 5
+**CSE 15L Lab Report 5**
 
 ```
 # Create your grading script here
@@ -74,14 +74,21 @@ fi
 Submission 1
 https://github.com/ucsd-cse15l-f22/list-methods-lab3
 (Same code as starter from lab 3)
+<img width="706" alt="Screen Shot 2022-11-28 at 8 40 58 AM" src="https://user-images.githubusercontent.com/114449002/204332770-156f72c7-ddb4-486f-82c4-02721388c28c.png">
+Grade 4/5
+
 
 Submission 2
 https://github.com/ucsd-cse15l-f22/list-methods-corrected
 (Has methods corrected (Full or near-to-full credit)
+<img width="754" alt="Screen Shot 2022-11-28 at 8 41 01 AM" src="https://user-images.githubusercontent.com/114449002/204332787-c6a86004-482e-41ff-9b8e-bce880bceffc.png">
+Grade 5/5
 
 Submission 3
 https://github.com/ucsd-cse15l-f22/list-methods-filename
 (Has great implementation saved in file with the wrong name)
+<img width="749" alt="Screen Shot 2022-11-28 at 8 41 06 AM" src="https://user-images.githubusercontent.com/114449002/204332798-7b18f73c-2125-4cc0-a331-eb03d3b8e0de.png">
+Grade 1/5
 
 First, make sure your grading script from Lab 7 can successfully give feedback on all of the sample student submissions. You might make some judgment calls about which ones get “credit” or not! But there should be something meaningfully reported for all of them. You should confirm that this works through the browser interface as well as the command line.
 
